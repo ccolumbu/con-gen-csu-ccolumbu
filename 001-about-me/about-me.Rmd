@@ -32,7 +32,7 @@ My top four things to do are:
 Here is a picture of me looking over Elephant Canyon in Canyonlands National Park.
 
 ```{r me_pic, echo=FALSE, out.width="500px"}
-knitr::include_graphics("../images/IMG_4880.jpg", auto_pdf = TRUE)
+knitr::include_graphics("images/IMG_4880.jpg", auto_pdf = TRUE)
 ```
 
 
