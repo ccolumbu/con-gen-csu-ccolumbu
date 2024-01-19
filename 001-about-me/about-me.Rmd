@@ -13,13 +13,6 @@ bibliography: references.bib
 
 # Who I am and where I came from
 
-I grew up in a small town in Southern California.  When I was 11 years old,
-I spent five weeks living with a family friend who ran the hyperbaric chamber
-adjacent to the University of Southern California Marine Lab on Catalina Island.
-Days spent snorkeling the kelp beds, keeping intertidal organisms in an aquarium
-I was allowed to fill, and watching researchers tag blue sharks convinced me that
-I wanted to be a marine biologist.  
-
 I've been working at the NMFS lab in Santa Cruz since I was an undergrad at [UC Santa Cruz](https://www.ucsc.edu/). I do genetic lab work on thousands of samples per year of fish - mainly salmon. In the past, we have focused our efforts in genotyping these fish for a variety of projects including GSI (genetic stock identification), parentage based tagging, and other population genetic-y stuff. Now, we are interested in low coverage whole genome sequencing and I would love to learn how to process the data!
 
 My top four things to do are:
