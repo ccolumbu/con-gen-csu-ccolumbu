@@ -1,0 +1,227 @@
+---
+title: "About Me"
+author: "Cassie Columbus"
+output:
+  html_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+bibliography: references.bib
+---
+
+# Who I am and where I came from
+
+I grew up in a small town in Southern California.  When I was 11 years old,
+I spent five weeks living with a family friend who ran the hyperbaric chamber
+adjacent to the University of Southern California Marine Lab on Catalina Island.
+Days spent snorkeling the kelp beds, keeping intertidal organisms in an aquarium
+I was allowed to fill, and watching researchers tag blue sharks convinced me that
+I wanted to be a marine biologist.  
+
+I've been working at the NMFS lab in Santa Cruz since I was an undergrad at [UC Santa Cruz](https://www.ucsc.edu/). I do genetic lab work on thousands of samples per year of fish - mainly salmon. In the past, we have focused our efforts in genotyping these fish for a variety of projects including GSI (genetic stock identification), parentage based tagging, and other population genetic-y stuff. Now, we are interested in low coverage whole genome sequencing and I would love to learn how to process the data!
+
+My top four things to do are:
+
+1. hiking, backpacking, being outdoors
+1. traveling and exploring new places
+1. playing Boggle and learning new words
+1. reading fiction and non-fiction and learning new things!
+
+Here is a picture of me looking over Elephant Canyon in Canyonlands National Park.
+
+```{r me_pic, echo=FALSE, out.width="500px"}
+knitr::include_graphics("../images/IMG_4880.jpg", auto_pdf = TRUE)
+```
+
+
+
+
+# Research Interests
+
+Oh, I just like contributing to conservation genetics and learning more and more each year!
+
+
+## Influential papers
+
+One paper that has been instrumental in developing protocols for being able to genotype thousands of fish using amplicon sequencing is @campbell2015genotyping  I want to try citing this paper again in a different way so here the paper is [@campbell2015genotyping].
+
+## The mathematics behind my research
+
+Math
+
+We can use one dollar sign to do inline mathy things like this $90^{\circ}$ 
+
+Most days, I just use a simple equation to determine dilutions of primers: $CV = CV$
+
+$$
+\mathbb{E}T_k = \frac{4N}{k(k-1)}.
+$$
+$$
+\mu_{f_j\longrightarrow v_i}(x_i) =  
+\sum_{x_{C\backslash i} \in \mathcal{X}_{C\backslash i}}
+h_j(x_{C\backslash i}, x_i) \prod_{k\in C\backslash i} \mu_{v_k\longrightarrow f_j}(x_k).
+$$
+And, to really update this document, I am going to throw in some equations
+deriving Fisher information for the WGSassign paper that I did with
+Matt deSaix, Marina Rodriguez and Kristen Ruegg, that is set to come out
+in _Methods in Ecology and Evolution_ sometime soon...
+
+We start by finding the first derivative:
+$$
+\frac{\partial L_i(\theta)}{\partial \theta} = \frac{\partial}{\partial \theta} \log\biggl[ g_0 (1-\theta)^2 + g_1 2\theta(1-\theta) + g_2 \theta^2\biggr].
+$$
+Let
+$$
+\begin{aligned}
+u &=  g_0 (1-\theta)^2 + g_1 2\theta(1-\theta) + g_2 \theta^2 \\
+   &=  g_0 (1-2\theta + \theta^2) + g_1(2\theta-2\theta^2) + g_2 \theta^2,
+\end{aligned}
+$$
+and note that
+$$
+\begin{aligned}
+\frac{\partial u}{\partial \theta} &= g_{0}(2\theta - 2) + g_{1}(2-4\theta) + g_{2}2\theta \\
+& = 2\theta(g_{0} + g_{2} - 2g_{1}) + 2(g_{1} - g_{0}).
+\end{aligned}
+$$
+Since $\partial \log(u)/ \partial \theta = (\partial u/\partial \theta)u^{-1}$, we have that
+$$
+\frac{\partial L_i(\theta)}{\partial \theta} = 
+\biggl(2\theta(g_{0} + g_{2} - 2g_{1}) + 2(g_{1} - g_{0})\biggr)
+\biggl(g_{0}(1-\theta)^2 + g_{1}2\theta(1-\theta) + g_{2}\theta^2\biggr)^{-1}.
+$$
+Proceeding, define $v$ and $w$ as follows:
+$$
+\begin{aligned}
+v &= 2\theta(g_{i,0} + g_{i,2} - 2g_{i,1}) + 2(g_{i,1} - g_{i,0}) &= \frac{\partial u}{\partial \theta} \\
+w &= \biggl(g_{i,0}(1-\theta)^2 + g_{i,1}2\theta(1-\theta) + g_{i,2}\theta^2\biggr)^{-1} &= u^{-1},
+\end{aligned}
+$$
+and note that we can rewrite $\frac{\partial L_i(\theta)}{\partial \theta} = vw$, and take the derivative of that easily using the
+product rule: $(vw)' = v'w + w'v$. To do so, we first find the derivatives
+$$
+\begin{aligned}
+v' &= \frac{\partial v}{\partial \theta} =  2(g_{0} + g_{2} - 2g_{1}) \\
+w' &= \frac{\partial w}{\partial \theta} = -u^{-2}\frac{\partial u}{\partial \theta} = -u^{-2}v,
+\end{aligned}
+$$
+then we put them together with the product rule
+$$
+\begin{aligned}
+\frac{\partial^2 L_i(\theta)}{\partial \theta^2} &= v'w + vw' = \frac{v'}{u} - \frac{v^2}{u^2} \\
+  &= \frac{2(g_{0} + g_{2} - 2g_{1})}{g_{0}(1-\theta)^2 + g_{1}2\theta(1-\theta) + g_{2}\theta^2} -
+  \left(\frac{2\theta(g_{0} + g_{2} - 2g_{1}) + 2(g_{1} - g_{0})}{g_{0}(1-\theta)^2 + g_{1}2\theta(1-\theta) + g_{2}\theta^2}\right)^2.
+\end{aligned}
+$$
+Restoring the $\mbox{}_{k,\ell}$ subscript to $\theta$, and the $\mbox{}^{(i)}$ superscript and $\ell$ subscript to $g$, negating, taking the sum over the $n_k$ individuals and evaluating at the MLE yields $I^{(i)}_{o}(\theta_{k,\ell})$.
+
+
+## My computing experience
+
+I use to R to format things for me that would be very time consuming otherwise.
+```r
+Both <- CH %>% select(Locus, PlateName, Well, Dilution_gtseq211) %>%          
+  #rename(Forward = Reverse, `Plate Name...4` = `Plate Name...7`, `Well Position...5` = `Well Position...8`) %>% #Renaming these columns so I can make a long format type file with Fwd and Rev primers on different rows.
+  #bind_rows(., Fwd) %>% #all the primers on separate rows
+  separate(., Dilution_gtseq211, into = c("included", "dilution"),   sep = " ", remove = FALSE) %>% #formatting
+  mutate(dilutions = case_when(included == "accept" ~ "Accept", 
+                               included == "ACCEPT" ~ "Accept",
+                               included == "Accept" ~ included, 
+                               included == "DROP" ~ included, 
+                               !is.na(Dilution_gtseq211) ~ dilution)) %>% #Putting that info into one column that I will use for the platemaps
+  mutate(letter = str_sub(Well, 1, 1)) %>%  #Need to separate well letter from number
+  mutate(number = as.numeric(str_sub(Well, 2, 3))) %>% 
+  filter(!is.na(Locus)) %>% filter(!is.na(Well)) %>% filter(., Locus != "Ots_sdy_1183_GTseq")
+
+#for checking and calculating the count of primers with different dilutions
+Both %>% group_by(dilutions) %>% count() %>% write_csv(., "dilutions_ch_gtseq211.csv")
+
+Both %>% group_by(PlateName, dilutions) %>% count() %>% write_csv(., "dilutions_byplate_ch_gtseq211.csv")
+
+#To generate plate maps!!!
+PlateMaps <- Both %>% select(dilutions, letter, number, PlateName) %>% 
+  spread(., key = number, value = dilutions) %>% 
+  arrange(., PlateName, letter) %>% 
+  select(PlateName, everything()) %>% 
+  write_csv(., "PlateMaps_ch_gt211.csv", na = "") 
+```
+I don't have experience with other types of code, so here is your awk script!
+```sh
+#! /usr/bin/awk -f
+
+# an awk script. 
+# it expects the output of qacct like this:
+# qacct -o eriq -b 09271925  -j ml
+
+# make it executable and run it like this:
+# qacct -o eriq -b 09271925  -j ml | tidy-qacct
+
+
+# if you pass it a job number that was not one of your jobs it 
+# just skips the error message that comes up.  
+
+# note that the output of qacct is space delimited
+
+
+/^==========/ {++n; next}  # increment run counter, then skip these lines
+/^error:/ {next}  # skip it if you told it to get a wrong job number
+
+# now, every data line it gets things.  It compiles the header 
+# all the way through, in case some reports have more columns...
+NF > 1 {
+  tag = $1;
+  if(!(tag in header_vals)) {
+    header[++h] = tag;
+    header_vals[tag]++;
+  }
+  $1 = "";  # remove the tag from the full line of stuff
+  values[n, tag] = $0;  # assign the values to the tag
+  
+}
+
+# at the end of it all, we print the header and then all the values:
+END {
+  # print the header
+  printf("%s", header[1]);
+  for(i=2;i<=h;i++) 
+    printf("\t%s", header[i]);
+  printf("\n");
+  
+  # cycle over individuals and fields and print em
+  for(j=1;j<=n;j++) {
+    printf("%s", values[j,header[1]]);
+    for(i=2;i<=h;i++) 
+      printf("\t%s", values[j,header[i]]);
+    printf("\n");
+  }
+}
+```
+
+## What I hope to get out of this class
+
+I hope that I will:
+
+* Keep diligent notes so I can remember how to do what you teach and can refer to it later!! 
+* Learn a bit more about the different type of files associated with wgs data processing 
+* Learn how to do the first steps of processing wgs data!
+
+# Evaluating some R code
+
+Copied from your read-me:
+```{r, message=FALSE}
+library(tidyverse)
+
+beta_rvs <- tibble(
+  x = rbeta(1e06, shape1 = 2, shape2 = 5)
+)
+
+ggplot(beta_rvs, aes(x = x)) +
+  geom_histogram(binwidth = 0.01)
+```
+
+
+# Citations
+
+
